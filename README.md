@@ -1,17 +1,19 @@
-# Assignment 1 — Compare Books by ISBN
+# OOPs Assignments Repository
 
-## 📄 Description
-This program defines a `Book` class with attributes `title`, `author`, and `isbn`.  
-It implements a method `hasSameISBN(Book otherBook)` to compare two book objects based on their ISBN numbers.  
-If the ISBNs are the same, the method returns `true`; otherwise, it returns `false`.  
-The `main` method creates multiple book objects and demonstrates the comparison functionality by printing whether the books have the same ISBN.
+This repository contains my Java programming assignments completed as part of my coursework.  
+Each folder/project represents a different assignment.
 
 ---
 
-## 🖥 Output
-FirstBook vs SecondBook : true
-FirstBook vs ThirdBook: false
-SecondBook vs ThirdBook: false
-
-
+## 📂 Structure
+- *Assignment 1* → [CompareBooks.java]
+ The Book class includes a method hasSameISBN(Book other) that compares two book objects using their ISBN (a unique identifier   for books). It returns true if both books have the same ISBN, otherwise false.  
+- *Assignment 2* → [TemperatureConverterApp.java]
+    This Java program converts temperatures between Celsius and Fahrenheit.
+      ->Takes input in one scale (Celsius/Fahrenheit).
+      ->Applies the conversion formula.
+      -> Displays the converted value to the user.
+          Formula Used:
+             °F = (°C × 9/5) + 32
+             °C = (°F − 32) × 5/9---
 
