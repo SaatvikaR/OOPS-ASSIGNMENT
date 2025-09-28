@@ -18,7 +18,7 @@ Each folder/project represents a different assignment.
           Formula Used:
              °F = (°C × 9/5) + 32
              °C = (°F − 32) × 5/9---
-  -*Assignment 3* → [ThreadExample.java]
+- *Assignment 3* → [ThreadExample.java]
 This Java program demonstrates **basic thread creation** using the `Thread` class.
 
 * Defines a class that extends `Thread` and overrides the `run()` method.
