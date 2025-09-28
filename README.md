@@ -21,9 +21,9 @@ Each folder/project represents a different assignment.
 - *Assignment 3* → [ThreadExample.java]
 This Java program demonstrates **basic thread creation** using the `Thread` class.
 
-* Defines a class that extends `Thread` and overrides the `run()` method.
-* Creates and starts a child thread alongside the main thread.
-* Both threads execute concurrently, displaying their respective outputs.
-* Uses `Thread.sleep()` to simulate pauses and observe multithreading behavior.
+    Defines a class that extends `Thread` and overrides the `run()` method.
+    Creates and starts a child thread alongside the main thread.
+    Both threads execute concurrently, displaying their respective outputs.
+    Uses `Thread.sleep()` to simulate pauses and observe multithreading behavior.
 
 
