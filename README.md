@@ -25,5 +25,10 @@ This Java program demonstrates **basic thread creation** using the `Thread` clas
     Creates and starts a child thread alongside the main thread.
     Both threads execute concurrently, displaying their respective outputs.
     Uses `Thread.sleep()` to simulate pauses and observe multithreading behavior.
+- *Assignment 4* → [DeleteRecord.java]
+
+The DeleteRecord program demonstrates how to use JDBC (Java Database Connectivity) to connect a Java application with a database and delete a specific record based on a given Student ID.
+
+It establishes a connection with the database using the MySQL JDBC driver, takes the student ID as user input, and performs a DELETE operation on the students table. The program then displays a message indicating whether the record was successfully deleted or not found.
 
 
