@@ -30,5 +30,9 @@ This Java program demonstrates **basic thread creation** using the `Thread` clas
 The DeleteRecord program demonstrates how to use JDBC (Java Database Connectivity) to connect a Java application with a database and delete a specific record based on a given Student ID.
 
 It establishes a connection with the database using the MySQL JDBC driver, takes the student ID as user input, and performs a DELETE operation on the students table. The program then displays a message indicating whether the record was successfully deleted or not found.
+- *Assignment 5* → [StopwatchApp.java]
 
+This Java program implements a Stopwatch using OOP concepts.
+It allows users to start, stop, reset, and view elapsed time through a menu-driven interface.
+Demonstrates encapsulation, methods, and class-based design in Java.
 
