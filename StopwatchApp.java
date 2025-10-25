@@ -1,90 +1,88 @@
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-class Stopwatch {
-    private long startTime;
-    private long elapsedTime;
-    private boolean running;
+public class StopwatchApp extends JFrame implements ActionListener {
 
-    // Start the stopwatch
-    public void start() {
-        if (!running) {
-            startTime = System.currentTimeMillis();
-            running = true;
-            System.out.println("Stopwatch started.");
-        } else {
-            System.out.println("Stopwatch is already running!");
-        }
-    }
+    // GUI components
+    private JLabel timeLabel;
+    private JButton startButton, stopButton, resetButton;
 
-    // Stop the stopwatch
-    public void stop() {
-        if (running) {
-            elapsedTime += System.currentTimeMillis() - startTime;
-            running = false;
-            System.out.println("Stopwatch stopped.");
-        } else {
-            System.out.println("Stopwatch is not running!");
-        }
-    }
+    // Timer variables
+    private int elapsedTime = 0; // in milliseconds
+    private boolean running = false;
 
-    // Reset the stopwatch
-    public void reset() {
-        startTime = 0;
-        elapsedTime = 0;
-        running = false;
-        System.out.println("Stopwatch reset.");
-    }
+    // Swing timer (updates every 1 second)
+    private Timer timer;
 
-    // Get elapsed time in seconds
-    public double getElapsedTime() {
-        long totalTime = elapsedTime;
-        if (running) {
-            totalTime += System.currentTimeMillis() - startTime;
-        }
-        return totalTime / 1000.0;
-    }
-}
+    public StopwatchApp() {
+        // Frame setup
+        setTitle("Stopwatch App");
+        setSize(300, 200);
+        setLayout(new FlowLayout());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // center on screen
 
-public class StopwatchApp {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Stopwatch sw = new Stopwatch();
-        int choice;
+        // Label to show time
+        timeLabel = new JLabel(formatTime(0));
+        timeLabel.setFont(new Font("Verdana", Font.BOLD, 30));
 
-        do {
-            System.out.println("\n--- STOPWATCH MENU ---");
-            System.out.println("1. Start");
-            System.out.println("2. Stop");
-            System.out.println("3. Reset");
-            System.out.println("4. Show Elapsed Time");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
+        // Buttons
+        startButton = new JButton("Start");
+        stopButton = new JButton("Stop");
+        resetButton = new JButton("Reset");
 
-            switch (choice) {
-                case 1:
-                    sw.start();
-                    break;
-                case 2:
-                    sw.stop();
-                    break;
-                case 3:
-                    sw.reset();
-                    break;
-                case 4:
-                    System.out.printf("Elapsed Time: %.2f seconds%n", sw.getElapsedTime());
-                    break;
-                case 5:
-                    System.out.println("Exiting Stopwatch...");
-                    break;
-                default:
-                    System.out.println("Invalid choice! Please try again.");
+        // Add action listeners
+        startButton.addActionListener(this);
+        stopButton.addActionListener(this);
+        resetButton.addActionListener(this);
+
+        // Add to frame
+        add(timeLabel);
+        add(startButton);
+        add(stopButton);
+        add(resetButton);
+
+        // Timer setup (every 1 second = 1000 ms)
+        timer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                elapsedTime += 1000;
+                timeLabel.setText(formatTime(elapsedTime));
             }
-        } while (choice != 5);
+        });
 
-        sc.close();
+        setVisible(true);
+    }
+
+    // Format time as HH:MM:SS
+    private String formatTime(int millis) {
+        int seconds = (millis / 1000) % 60;
+        int minutes = (millis / 60000) % 60;
+        int hours = millis / 3600000;
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+    }
+
+    // Button actions
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == startButton) {
+            if (!running) {
+                timer.start();
+                running = true;
+            }
+        } else if (e.getSource() == stopButton) {
+            timer.stop();
+            running = false;
+        } else if (e.getSource() == resetButton) {
+            timer.stop();
+            running = false;
+            elapsedTime = 0;
+            timeLabel.setText(formatTime(0));
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        new StopwatchApp();
     }
 }
-
-
-
