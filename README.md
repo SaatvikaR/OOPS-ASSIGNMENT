@@ -32,7 +32,6 @@ The DeleteRecord program demonstrates how to use JDBC (Java Database Connectivit
 It establishes a connection with the database using the MySQL JDBC driver, takes the student ID as user input, and performs a DELETE operation on the students table. The program then displays a message indicating whether the record was successfully deleted or not found.
 - *Assignment 5* → [StopwatchApp.java]
 
-This Java program implements a Stopwatch using OOP concepts.
-It allows users to start, stop, reset, and view elapsed time through a menu-driven interface.
-Demonstrates encapsulation, methods, and class-based design in Java.
-
+This project demonstrates the use of Swing GUI components and event handling in Java.
+The application uses a javax.swing.Timer to update elapsed time every second and displays it in the format HH:MM:SS.
+Users can control the stopwatch using Start, Stop, and Reset buttons.
